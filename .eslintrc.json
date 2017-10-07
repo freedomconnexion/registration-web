@@ -1,0 +1,11 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "react/jsx-filename-extension": 0  // create-react-app wants the main App to be App.js
+    },
+    "globals": {
+      "document": true,
+      "window": true,
+      "fetch": true
+    }
+}
