@@ -30,8 +30,12 @@ class QuantityPanel extends Component {
   nextButtonText() {
     const quantity = this.state.quantitySelected;
 
-    if (!quantity) {
-      return null;
+    if (!quantity || quantity === 0) {
+      return (
+        <span>
+          Buy tickets
+        </span>
+      );
     }
 
     if (quantity < 6) {
@@ -122,6 +126,7 @@ class QuantityPanel extends Component {
             <Pager>
               <Pager.Item
                 onSelect={e => this.onNextClicked(e)}
+                disabled={!this.state.quantitySelected || this.state.quantitySelected === 0}
               >
                 {this.nextButtonText()}
                 &nbsp;<FontAwesome name="arrow-circle-right" size="lg" />
