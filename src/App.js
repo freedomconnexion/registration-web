@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Panel, PageHeader } from 'react-bootstrap';
+import { Col, Panel } from 'react-bootstrap';
 import './App.css';
 
 // Components
@@ -15,7 +15,8 @@ import RegistrationAPI from './api/RegistrationAPI';
 
 const panelTitle = (
   <div align="center">
-    <PageHeader> Apps & Drinks 2017 </PageHeader>
+    <span className="sub-head">{"Freedom Connexion's"}</span><br />
+    <span className="head"> Apps & Drinks 2017 </span>
   </div>
 );
 

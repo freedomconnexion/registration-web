@@ -58,11 +58,30 @@ class QuantityPanel extends Component {
       <div className={this.props.processStage === 'quantity' ? '' : 'hidden'}>
         <Row>
           <Col xs={12}>
-            <p>{"Come join us for this year's Apps & Drinks for Freedom!"}</p>
-            <p>More text will go here</p>
+            <p className="event-specifics">
+              Saturday, November 4th 2017<br />
+              6:30 - 8:00 PM<br />
+              Lunder Arts Center at Lesley University<br />
+              <a href="https://www.lesley.edu/academics/college-of-art-design/lunder-arts-center">1801 Massachusetts Avenue, Cambridge</a><br />
+            </p>
+            <br />
+            <p>
+              Join us for an evening of apps & drinks to
+              celebrate Freedom Connexion 2017
+              and raise the funds to make sure our
+              vital program is available to families and scholars this summer.
+            </p>
+          </Col>
+          <Col xs={12}>
+            <div align="center">
+              <p className="sub-head">
+                How many tickets would you like?
+              </p>
+            </div>
           </Col>
         </Row>
         <Row>
+          <Col xs={1} />
           {[1, 2, 3, 4, 5].map(index => (
             <Col key={index} xs={2}>
               <Button
