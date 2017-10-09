@@ -29,8 +29,8 @@ class App extends Component {
       processorErrorMessage: '',
       processStage: 'quantity',
       ticketInfo: {
-        quantity: null,
-        total_amount: null,
+        quantity: 0,
+        total_amount: '',
       },
       purchaserInfo: {
         firstName: '',
@@ -44,7 +44,7 @@ class App extends Component {
       },
       transaction: {
         id: '',
-        totalAmount: 0,
+        totalAmount: '',
         creditCardLast4: '',
       },
     };
