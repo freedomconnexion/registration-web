@@ -233,7 +233,7 @@ body {
 
 @media (min-width: 992px) {
   body {
-    background: url(/hero.jpg) no-repeat center center fixed;
+    background: url(./img/hero.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

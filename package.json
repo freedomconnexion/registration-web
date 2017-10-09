@@ -1,5 +1,6 @@
 {
   "name": "registration-web",
+  "homepage": "https://freedomconnexion.org/appsanddrinks",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
