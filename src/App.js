@@ -44,6 +44,8 @@ class App extends Component {
       },
       transaction: {
         id: '',
+        totalAmount: 0,
+        creditCardLast4: '',
       },
     };
     this.braintreeApi = new BraintreeAPI();
@@ -121,6 +123,8 @@ class App extends Component {
           this.setState({
             transaction: {
               id: result.transactionId,
+              creditCardLast4: result.creditCardLast4,
+              totalAmount: result.totalAmount,
             },
           });
           this.completeStage('credit');
