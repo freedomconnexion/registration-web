@@ -70,7 +70,7 @@ class CreditPanel extends Component {
           <i><strong> {this.props.processorErrorMessage} </strong></i>
           Please correct any errors and try again.
         </Well>
-        <form>
+        <form className={this.props.processing ? 'processing' : ''}>
           <Row>
             <Col xs={8}>
               <FormGroup>

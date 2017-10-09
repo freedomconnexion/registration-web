@@ -113,7 +113,10 @@ class App extends Component {
   }
 
   processRegistration() {
-    // Get the nonce
+    this.setState({
+      processing: true,
+    });
+
     this.braintreeApi.getNonce()
       .then(nonce =>
         this.registrationApi.process(nonce, this.state.ticketInfo, this.state.purchaserInfo),
@@ -121,6 +124,7 @@ class App extends Component {
       .then((result) => {
         if (result.success) {
           this.setState({
+            processing: false,
             transaction: {
               id: result.transactionId,
               creditCardLast4: result.creditCardLast4,
@@ -130,6 +134,7 @@ class App extends Component {
           this.completeStage('credit');
         } else {
           this.setState({
+            processing: false,
             processorErrors: true,
             processorErrorMessage: result.err.message,
           });
@@ -137,6 +142,7 @@ class App extends Component {
       })
       .catch((err) => {
         this.setState({
+          processing: false,
           processorErrors: true,
           processorErrorMessage: err.message,
         });
