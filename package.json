@@ -17,6 +17,7 @@
   "scripts": {
     "start": "HTTPS=true REACT_APP_CLIENT_TOKEN_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/dev/ClientToken' REACT_APP_REGISTRATION_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/dev/Register' react-scripts start",
     "build-dev": "HTTPS=true REACT_APP_CLIENT_TOKEN_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/dev/ClientToken' REACT_APP_REGISTRATION_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/dev/Register' react-scripts build",
+    "build-prod": "HTTPS=true REACT_APP_CLIENT_TOKEN_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/prod/ClientToken' REACT_APP_REGISTRATION_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/prod/Register' react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
