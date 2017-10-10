@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "amplitude-js": "^3.7.0",
     "braintree-web": "^3.23.0",
-    "lodash": "^4.17.4",
+    "lodash-es": "^4.17.4",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-amplitude": "^0.0.6",
@@ -16,9 +17,8 @@
     "validator": "^9.0.0"
   },
   "scripts": {
-    "start": "HTTPS=true REACT_APP_CLIENT_TOKEN_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/dev/ClientToken' REACT_APP_REGISTRATION_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/dev/Register' react-scripts start",
-    "build-dev": "HTTPS=true REACT_APP_CLIENT_TOKEN_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/dev/ClientToken' REACT_APP_REGISTRATION_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/dev/Register' react-scripts build",
-    "build-prod": "HTTPS=true REACT_APP_CLIENT_TOKEN_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/prod/ClientToken' REACT_APP_REGISTRATION_URL='https://o2jo6eg2pl.execute-api.us-east-1.amazonaws.com/prod/Register' react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
