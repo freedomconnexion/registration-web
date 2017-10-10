@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Pager, Row, Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 import { isAlpha, isAscii, isEmail } from 'validator';
+import includes from 'lodash-es/includes';
 import { FieldGroup, FieldGroupSelect } from './Helpers';
 import '../App.css';
 
@@ -54,7 +55,7 @@ class InfoPanel extends Component {
       this.validateInputAndSet(InfoPanel.isZip, this.state.info.zip, 'zipHelp', 'Please enter a valid zip code'),
     ];
 
-    if (!complete.includes(false)) {
+    if (!includes(complete, false)) {
       this.props.setInfo(this.state.info);
       this.props.onCompleteStage();
     }

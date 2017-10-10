@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Well, Pager, Row, Col, FormGroup } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import includes from 'lodash-es/includes';
 import { BTFieldGroup } from './Helpers';
 import '../App.css';
 
@@ -50,7 +51,7 @@ class CreditPanel extends Component {
       this.checkHostedFieldAndLogError('postalCode', 'postalCodeHelp', 'Please enter a valid zip code'),
     ];
 
-    if (!valid.includes(false)) {
+    if (!includes(valid, false)) {
       this.props.processRegistration();
     } else {
       window.scrollTo(0, 0);
