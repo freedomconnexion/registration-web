@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Panel } from 'react-bootstrap';
+import amplitude from 'amplitude-js';
 import './App.css';
 
 // Components
@@ -55,21 +56,46 @@ class App extends Component {
     this.setQuantity.bind(this);
     this.setPurchaserInfo.bind(this);
     this.processRegistration = this.processRegistration.bind(this);
+
+    this.amplitude = amplitude.getInstance();
+  }
+
+  componentDidMount() {
+    const amplitudeId = process.env.REACT_APP_AMPLITUDE_ID;
+
+    this.amplitude.init(amplitudeId);
+    this.amplitude.logEvent(
+      'Loaded App',
+      {
+        path: window.location.pathname,
+        queryString: window.location.search,
+      },
+    );
   }
 
   setQuantity(quantity) {
+    const ticketInfo = {
+      quantity,
+      totalAmount: quantity === 6 ? 400 : quantity * 75, // gotta add the 6 person exception
+    };
     this.setState({
-      ticketInfo: {
-        quantity,
-        totalAmount: quantity * 75, // gotta add the 6 person exception
-      },
+      ticketInfo,
     });
+    this.amplitude.logEvent(
+      'Set Quantity',
+      ticketInfo,
+    );
   }
 
   setPurchaserInfo(purchaserInfo) {
     this.setState({
       purchaserInfo,
     });
+    this.amplitude.setUserId(purchaserInfo.email);
+    this.amplitude.logEvent(
+      'Set Purchaser Info',
+      purchaserInfo,
+    );
   }
 
   previousStage(stage) {
@@ -88,6 +114,13 @@ class App extends Component {
     }
     window.scrollTo(0, 0);
     this.setState({ processStage: previousStage });
+    this.amplitude.logEvent(
+      'Previous Stage',
+      {
+        currentStage: stage,
+        previousStage,
+      },
+    );
   }
 
   completeStage(stage) {
@@ -110,12 +143,22 @@ class App extends Component {
 
     window.scrollTo(0, 0);
     this.setState({ processStage: nextStage });
+
+    this.amplitude.logEvent(
+      'Complete Stage',
+      {
+        currentStage: stage,
+        nextStage,
+      },
+    );
   }
 
   processRegistration() {
     this.setState({
       processing: true,
     });
+
+    this.amplitude.logEvent('Process Registration Initiated');
 
     this.braintreeApi.getNonce()
       .then(nonce =>
@@ -132,12 +175,24 @@ class App extends Component {
             },
           });
           this.completeStage('credit');
+          this.amplitude.logEvent(
+            'Process Registration Complete',
+            {
+              result,
+            },
+          );
         } else {
           this.setState({
             processing: false,
             processorErrors: true,
             processorErrorMessage: result.err.message,
           });
+          this.amplitude.logEvent(
+            'Process Registration Errored',
+            {
+              result,
+            },
+          );
         }
       })
       .catch((err) => {
@@ -146,6 +201,12 @@ class App extends Component {
           processorErrors: true,
           processorErrorMessage: err.message,
         });
+        this.amplitude.logEvent(
+          'Process Registration Errored',
+          {
+            err,
+          },
+        );
       });
   }
 

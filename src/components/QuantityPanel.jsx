@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Pager, Row, Button, Col } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import amplitude from 'amplitude-js';
 import '../App.css';
 
 
@@ -17,9 +18,17 @@ class QuantityPanel extends Component {
   }
 
   onProductClicked(e) {
+    const quantitySelected = parseInt(e.target.id, 0);
+
     this.setState({
-      quantitySelected: parseInt(e.target.id, 0),
+      quantitySelected,
     });
+    amplitude.getInstance().logEvent(
+      'Quantity Clicked',
+      {
+        quantitySelected,
+      },
+    );
   }
 
   onNextClicked() {
