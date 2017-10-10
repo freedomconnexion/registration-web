@@ -18,17 +18,17 @@ class RegistrationAPI {
 
   static serializeRegistration(nonce, ticketInfo, info) {
     return ({
-      ticket_info: {
+      ticketInfo: {
         quantity: ticketInfo.quantity,
-        total_amount: ticketInfo.total_amount,
+        totalAmount: ticketInfo.totalAmount,
       },
-      purchaser_info: {
-        first_name: info.firstName,
-        last_name: info.lastName,
+      purchaserInfo: {
+        firstName: info.firstName,
+        lastName: info.lastName,
         email: info.email,
         phone: info.phone,
         address: {
-          street_address: info.address,
+          streetAddress: info.address,
           city: info.city,
           state: info.state,
           zip: info.zip,

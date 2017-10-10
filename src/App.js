@@ -30,7 +30,7 @@ class App extends Component {
       processStage: 'quantity',
       ticketInfo: {
         quantity: 0,
-        total_amount: '',
+        totalAmount: '',
       },
       purchaserInfo: {
         firstName: '',
@@ -61,7 +61,7 @@ class App extends Component {
     this.setState({
       ticketInfo: {
         quantity,
-        total_amount: quantity * 75, // gotta add the 6 person exception
+        totalAmount: quantity * 75, // gotta add the 6 person exception
       },
     });
   }
