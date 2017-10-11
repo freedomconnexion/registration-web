@@ -1,3 +1,13 @@
 language: node_js
 node_js:
-  - "node"
+- node
+deploy:
+  provider: s3
+  access_key_id: AKIAI7MJHTI5MLFTSDXQ
+  secret_access_key:
+    secure: ddJGvNvgq4P03KN5qNj1lWLq4KcuRspfVyHtEyolHpb6K5hmgLCOBnNlNnZ580KZpm8gBhakRzDqYDdvrfhwJ/jhXe8vaxSulQCW/roEy9wOGJsbt2NMrnQdBqOr43Q3tJnzXDyzZTeTBmEfQdsYK3y8mAprrRJpUyzDjq84kiWSedwApWSLfGMhrM6mhE0EgH9bPTR9lffbwm1v0wFoOItwCOopT4x0uJoUayTAiPhNVcqNhvMcCHLxPnoT+BOr3URcbG2PUWu7lPc55PGYl6bcqbfWjd6foYCp4PixDbTeTBCQ+7mxVG8oEJOrnvy949d4LAHAPXeX/isi1Ev53xrrpvyZ+jI1GZZEZZwh7pXf6kT+Fz5vHyMZ4v7D4fMi94+0HormSpD6bu3IDwHXKMbE4QWYOxD4pFa2RITLYxZGQueTeHcz/0arytdB6+4gYv7duKYRvUI5t+W4R0p0oQGF+dF/iVkL4hhM33VwB3BJharOJRhSe66d01yr6vlzl66T+L+0P4cFJUWxhmIAD+Y8ba+nMgShhXU7ZORH/CJA3bPmCrXtq/pOLSH1pNPV0KN81UhwScIfRsCJ19qNlHNum9bWzWYR62E5HG+uPSQcsTBHrm8IB1F1kb9yD/gnFSb12V+GnJ91O+ayvvPsBmgzqnNOw7TaZ4d5kM3hCJU=
+  bucket: freedomconnexion-registration
+  local-dir: build
+  acl: public_read
+  on:
+    repo: freedomconnexion/registration-web
