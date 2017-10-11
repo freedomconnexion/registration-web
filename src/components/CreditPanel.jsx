@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Well, Pager, Row, Col, FormGroup } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
-import includes from 'lodash-es/includes';
+import includes from 'lodash/includes';
 import { BTFieldGroup } from './Helpers';
 import '../App.css';
 
