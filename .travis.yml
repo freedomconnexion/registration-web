@@ -14,6 +14,7 @@ deploy:
   bucket: freedomconnexion-registration
   skip_cleanup: true
   local-dir: build
+  upload-dir: appsanddrinks
   acl: public_read
   on:
     repo: freedomconnexion/registration-web
